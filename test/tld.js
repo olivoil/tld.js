@@ -59,6 +59,13 @@ suite('tld.js', function () {
       expect(tld.getDomain('foo.google.co.uk')).to.be('google.co.uk');
       expect(tld.getDomain('fr.t.co')).to.be('t.co');
     });
+
+    //@see https://github.com/oncletom/tld.js/issues/25
+    //@see https://github.com/oncletom/tld.js/issues/30
+    test('existing rule constraint', function () {
+      expect(tld.getDomain('s3.amazonaws.com')).to.be(null);
+      expect(tld.getDomain('blogspot.co.uk')).to.be(null);
+    });
   });
 
   suite('#tldExists', function () {
@@ -80,6 +87,14 @@ suite('tld.js', function () {
 
     test('they cannot be verified', function(){
       expect(tld.tldExists('uk.com')).to.be(true);
+    });
+  });
+
+  suite('#getPublicSuffix', function () {
+    //@see https://github.com/oncletom/tld.js/issues/30
+    test('existing rule constraint', function () {
+      expect(tld.getPublicSuffix('s3.amazonaws.com')).to.be('s3.amazonaws.com');
+      expect(tld.getPublicSuffix('blogspot.co.uk')).to.be('blogspot.co.uk');
     });
   });
 
