@@ -1,8 +1,8 @@
 {
-  "name": "tld",
+  "name": "tldjs",
   "repository": "oncletom/tld.js",
   "description": "JavaScript API to work against complex domain names, subdomains and URIs.",
-  "version": "1.3.6",
+  "version": "1.3.7",
   "main": "index.js",
   "license": "MIT",
   "scripts": [
